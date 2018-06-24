@@ -41,6 +41,7 @@ p:first-child {
 }
 
 #clientDialogue {
+	position: relative;
 	transform: translateY(40px);
 	margin-bottom: 40px;
 	background-color: #d05500;
@@ -49,6 +50,17 @@ p:first-child {
 	padding: 10px;
 	border-radius: 20px;
 	color: #efefef;
+}
+#clientDialogue::before {
+	content: '';
+	position: absolute;
+	width: 30px;
+	height: 40px;
+	right: 0;
+	top: -10px;
+	background-color: #d05500;
+	transform: skewY(-35deg);
+	z-index: -1;
 }
 
 #coach {
@@ -66,7 +78,7 @@ p:first-child {
     cursor: pointer;
 	border: 2px solid #fff;
 	
-    transition: all .2s, border .9s;
+    transition: all .2s, border-radius .8s, border .8s;
 }
 .questionBox:hover {
     color: #f28a00;
