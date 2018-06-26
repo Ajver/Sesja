@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="css/sesja.css">	
 	<link rel="stylesheet" href="css/summary.css">
 	
-	<link href="https://fonts.googleapis.com/css?family=Khula:400,700&amp;subset=latin-ext" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin-ext" rel="stylesheet">
 	
 </head>
 <body>
@@ -40,7 +40,7 @@
 		</article>
 	</main>
     
-    <div id="mainCurtain"></div>
+    <div id="mainCurtain" onclick="canelCurtaint()"></div>
     <div id="endGameWindow">
         <h1>Kończenie sesji</h1>
         <h2>W jaki sposób chcesz zakończyć sesję?</h2>
@@ -48,7 +48,7 @@
         <div class="questionBox" onclick="summary(0)">Dobra, ja spadam.</div>
         <div class="questionBox" onclick="summary(1)">Kończy nam się czas. Myślę, że to czas, by podsumować, co udało nam się dziś zrobić</div>
         
-        <div class="questionBox" style="margin-top: 60px;" onclick="canelCurtaint()">Kontynuuj sesję</div>
+        <div class="questionBox" style="margin-top: 20px;" onclick="canelCurtaint()">Kontynuuj sesję</div>
     </div>
 
 	<script src="scripts/situations.js"></script>

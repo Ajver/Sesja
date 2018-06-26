@@ -5,16 +5,16 @@ var isChanging = false;
 var nestSituationID = 0;
 
 function setUp() {
-	situations = createSituations();
+	//situations = createSituations();
 	
 	if(situations.length > 0) {
 		situations[currentSituationID].updateContent();
+        setUpClock();
 	}else {
+        document.getElementById('stopButton').style.display = 'none';
+        stopClock();
         setDefaultContent();
-		alert('BŁĄD! Brak sytuacji! \n\n ERROR! No situations left!');
 	}
-    
-    setUpClock();
 }
 
 function change() {
@@ -25,7 +25,7 @@ function change() {
 }
 
 function setDefaultContent() {
-    document.getElementById('client').innerHTML = '<p class="errorMessage">Jeśli widzisz ten komunikat, oznacza to, że coś poszło nie tak. Przeładuj stronę, a jeśli to nie pomoże - powiedz o tym trenerowi lub zadzwoń: 575 730 007.</p>';
+    document.getElementById('client').innerHTML = '<p class="errorMessage">BŁĄD!</p><p class="errorMessage">Jeśli widzisz ten komunikat, oznacza to, że coś poszło nie tak. Przeładuj stronę, a jeśli to nie pomoże - powiedz o tym trenerowi lub zadzwoń: 575 730 007.</p>';
         
     document.getElementById('coach').innerHTML = '<p>Brak pytań do zadania</p>';
 }
