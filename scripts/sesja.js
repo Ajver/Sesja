@@ -3,9 +3,10 @@ var situations = new Array();
 var currentSituationID = 2;
 var isChanging = false;
 var nestSituationID = 0;
+var stats = new Stats();
 
 function setUp() {
-	//situations = createSituations();
+	situations = createSituations();
 	
 	if(situations.length > 0) {
 		situations[currentSituationID].updateContent();
@@ -30,8 +31,9 @@ function setDefaultContent() {
     document.getElementById('coach').innerHTML = '<p>Brak pytań do zadania</p>';
 }
 
-function questionOnClick(target) {
+function questionOnClick(target, qst0, qst1, qst2) {
     if(!isChanging) {
+        stats.addStats(qst0, qst1, qst2);
         isChanging = true;
         nextSituationID = target;
         document.getElementById('currentSituation').style.opacity = '0';
@@ -39,7 +41,7 @@ function questionOnClick(target) {
     }
 }
 
-function Question(content, id, target, stats) {
+function Question(content, id, target, qstats) {
 	this.content = content;
 	this.id = id;
 	
@@ -47,10 +49,10 @@ function Question(content, id, target, stats) {
 	this.target = target;
     
     // Array
-    this.stats = stats;
+    this.qstats = qstats;
 	
 	this.getContentHTML = function() {
-		return '<div id="qb' +this.id+ '" class="questionBox" onclick="questionOnClick(' +target+ ')">' +this.content+ '</div>';
+		return '<div id="qb' +this.id+ '" class="questionBox" onclick="questionOnClick(' + target + ',' + qstats[0] + ',' + qstats[1] + ',' + qstats[2] + ')">' + content + '</div>';
 	}
 }
 
@@ -74,6 +76,31 @@ function Situation(clientAnswer, coachQuestions, id) {
         
         document.getElementById('coach').innerHTML = question;
 	}
+}
+
+function Stats() {
+    
+    this.koncentracjaNaRozwiazaniach = 0;
+    this.trafnePytania = 0;
+    this.domykanieSesji = 0;
+    
+    this.addStats = function(qst0, qst1, qst2) {
+        this.koncentracjaNaRozwiazaniach += qst0;
+        this.trafnePytania += qst1;
+        this.domykanieSesji += qst2;
+    }
+    
+    this.getStat = function(nr) {
+        switch(nr) {
+            case 0: return this.koncentracjaNaRozwiazaniach; break;
+            case 1: return this.trafnePytania; break;
+            case 2: return this.domykanieSesji; break;
+        }
+    }
+}
+
+function getStats() {
+    return stats;
 }
 
 

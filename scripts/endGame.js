@@ -2,13 +2,14 @@ function summary(type) {
     // Type = which end was typed
     stopClock();
     var time = getClock();
+    var stats = getStats(); 
     
     var header = '<h1>Podsumowanie sesji</h1>'
-    
+    var statsContent = '<p>' + stats.getStat(0) + '</p>' + '<p>' + stats.getStat(1) + '</p>' + '<p>' + stats.getStat(2) + '</p>';
     var content = header;
     
     var container = document.getElementById('container');
-    container.innerHTML = content;
+    container.innerHTML = content+statsContent;
     
     
     canelCurtaint();
