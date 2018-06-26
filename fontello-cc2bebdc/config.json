@@ -1,0 +1,16 @@
+{
+  "name": "stop",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "b624a1e512819d410ddbee84e6918b9d",
+      "css": "stop",
+      "code": 59393,
+      "src": "fontawesome"
+    }
+  ]
+}
