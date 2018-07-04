@@ -1,0 +1,228 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin: 30px 0;
+}
+
+h2 {
+  color: #f28a00;
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+
+body {
+  background-color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  color: #484848;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  transition: all .6s;
+}
+
+body.opened-window::after {
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 200;
+}
+
+#currentSituation {
+  margin-top: 60px;
+  transition: all 0.8s;
+}
+
+p {
+  margin-top: 10px;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
+main,
+#client,
+#clientDialogue,
+.questionBox {
+  box-sizing: border-box;
+}
+
+main {
+  width: 100vw;
+  padding: 20px;
+  overflow: auto;
+  margin: 0 auto;
+  background-color: white;
+  text-align: center;
+  max-width: 800px;
+}
+
+#client {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 10px;
+  background-color: white;
+  font-size: 1.6rem;
+}
+
+#clientDialogue {
+  position: relative;
+  transform: translateY(40px);
+  margin-bottom: 40px;
+  background-color: #d05500;
+  width: 70%;
+  min-width: 200px;
+  padding: 10px;
+  border-radius: 20px;
+  color: #efefef;
+}
+
+#clientDialogue::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  right: 0;
+  top: -10px;
+  background-color: #d05500;
+  transform: skewY(-35deg);
+  z-index: -1;
+}
+
+#coach {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.questionBox {
+  font-size: 1.8rem;
+  width: 100%;
+  color: #005361;
+  margin: 0 auto;
+  padding: 10px;
+  cursor: pointer;
+  border: 2px solid #fff;
+
+  transition: all .2s, border-radius .8s, border .8s;
+}
+
+.questionBox:hover {
+  color: #f28a00;
+  text-transform: underline;
+  border-color: #f28a00;
+  border-radius: 50px;
+}
+
+.motivationText {
+  color: #f28a00;
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-align: left;
+  margin: 25px 0 2px 10px;
+}
+
+.errorMessage {
+  color: #ff0000;
+}
+
+#clockTitle {
+  font-size: 1.6rem;
+}
+
+#clock {
+  font-size: 2rem;
+}
+
+.niceShadow {
+  box-shadow: 0 0 6px #666;
+}
+
+#clockBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  background-color: #fff;
+  z-index: 5;
+  padding: 10px 0;
+  transition: all 0.6s;
+}
+
+#stop-btn {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  padding: 0;
+  font-size: 4rem;
+  height: 30px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+#stop-btn:hover {
+  color: #f28a00;
+}
+
+.endGameWindow {
+  box-sizing: border-box;
+  opacity: 0;
+  background-color: #fff;
+  width: calc(100vw - 40px);
+  margin: auto;
+  max-width: 800px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+  border-radius: 30px;
+  z-index: -1;
+  text-align: center;
+  padding: 20px;
+
+  transition: opacity .3s;
+}
+
+.opened-window .endGameWindow {
+  opacity: 1;
+  z-index: 250;
+  transition-delay: .2s;
+}
+
+@media (min-height: 380px) {}
+
+@media (min-height: 480px) {}
+
+@media (min-width:320px) {}
+
+@media (min-width:480px) {}
+
+@media (min-width:600px) {}
+
+@media (min-width:801px) {}
+
+@media (min-width:1025px) {}
+
+@media (min-width:1281px) {}

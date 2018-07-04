@@ -1,72 +1,69 @@
 <!DOCTYPE html>
-
 <html lang="pl">
+
 <head>
-
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
-	<meta name="description" content="Symulator sesji coachingowej z klientem">	
-	<title>Sesja z klientem</title>
-	
-	<link rel="stylesheet" href="css/fontello.css">
-	<link rel="stylesheet" href="css/sesja.css">	
-	<link rel="stylesheet" href="css/summary.css">
-	
-	<link href="https://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin-ext" rel="stylesheet">
-	
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Symulator sesji coachingowej z klientem">
+  <title>Sesja z klientem</title>
+  <link rel="stylesheet" href="css/fontello.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/summary.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin-ext" rel="stylesheet">
 </head>
-<body>
 
-	<main id="container">
-	    <sidebar id="clockBar">
-            <div id="clockTitle">Czas trwania sesji:</div>
-	        <div id="clock">00:00:00</div>
-	        <i id="stopButton" class="icon-pause" onclick="curtain()"></i>
-	    </sidebar>
-	
-		<article id="currentSituation">
-			<section>
-				<div id="client">
-					
-				</div>
-			</section>
-			
-			<nav>
-				<p class="motivationText">Zadaj najlepsze pytanie:</p>
-				<div id="coach">
-					
-				</div>
-			</nav>
-		</article>
-	</main>
-    
-    <div id="mainCurtain" onclick="canelCurtaint()"></div>
-    <div id="endGameWindow">
+<body>
+  <main>
+    <sidebar id="clockBar">
+      <div id="clockTitle">Czas trwania sesji:</div>
+      <div id="clock">00:00:00</div>
+      <i id="stop-btn" class="icon-pause" title="Zakończ sesję"></i>
+    </sidebar>
+    <article id="currentSituation">
+      <section>
+        <header>
+          <div id="client"></div>
+        </header>
+      </section>
+      <section>
+        <nav>
+          <header>
+            <h3 class="motivationText">Zadaj najlepsze pytanie:</h3>
+          </header>
+          <div id="coach"></div>
+        </nav>
+      </section>
+    </article>
+  </main>
+  <div class="endGameWindow">
+    <section>
+      <header>
         <h1>Kończenie sesji</h1>
         <h2>W jaki sposób chcesz zakończyć sesję?</h2>
-        
-        <div class="questionBox" onclick="summary(0)">Dobra, ja spadam.</div>
-        <div class="questionBox" onclick="summary(1)">Kończy nam się czas. Myślę, że to czas, by podsumować, co udało nam się dziś zrobić</div>
-        
-        <div class="questionBox" style="margin-top: 20px;" onclick="canelCurtaint()">Kontynuuj sesję</div>
-    </div>
+      </header>
+      <nav>
+        <div class="questionBox" id="ending-btn-0">Dobra, ja spadam.</div>
+        <div class="questionBox" id="ending-btn-1">Kończy nam się czas. Myślę, że to dobry moment, by podsumować, co udało nam się dziś zrobić</div>
+        <div class="questionBox" style="margin-top: 20px;" id="continue-btn">Kontynuuj sesję</div>
+      </nav>
+    </section>
+  </div>
 
-	<script src="scripts/situations.js"></script>
-	<script src="scripts/timer.js"></script>
-	<script src="scripts/sesja.js"></script>
-	<script src="scripts/endGame.js"></script>
-	
-	<script>
-        
-        window.onscroll = function() {
-            if(window.pageYOffset > 0) {
-                document.getElementById('clockBar').classList.add('niceShadow');
-            }else {
-                document.getElementById('clockBar').classList.remove('niceShadow');
-            }
-        }
-    
-    </script>
-	
+  <script src="scripts/situations.js"></script>
+  <script src="scripts/timer.js"></script>
+  <script src="scripts/endGame.js"></script>
+  <script src="scripts/main.js"></script>
+  <script>
+    window.addEventListener("scroll", function() {
+      if (window.pageYOffset > 0) {
+        document.getElementById('clockBar').classList.add('niceShadow');
+      } else {
+        document.getElementById('clockBar').classList.remove('niceShadow');
+      }
+    }, false);
+
+  </script>
+
 </body>
+
 </html>
